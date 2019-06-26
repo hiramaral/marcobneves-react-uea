@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+
+class ListaAutor extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            autores: [
+                {nome:'Marco', email:'Marco@gmail.com', senha:'12345'}
+            ]
+        }
+    }
+
+    listagem = () => {
+
+    }
+
+    render() {
+        return (
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">senha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {
+                            this.state.autores.map((item) => {
+                                return (
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{item.nome}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.senha}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ListaAutor />
+        </div>
+    );
 }
 
 export default App;
